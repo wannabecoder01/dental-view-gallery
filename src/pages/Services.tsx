@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Check, Star } from 'lucide-react';
 
@@ -48,18 +49,18 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-orange-500">SmileCare Dental</h1>
+              <h1 className="text-2xl font-bold text-blue-600">SmileCare Dental</h1>
             </div>
             <div className="flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Home</Link>
-              <Link to="/services" className="text-orange-500 hover:text-orange-700 font-medium">Services</Link>
-              <button className="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors">
+              <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</Link>
+              <Link to="/services" className="text-blue-600 hover:text-blue-800 font-medium">Services</Link>
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Book Appointment
               </button>
             </div>
@@ -68,15 +69,15 @@ const Services = () => {
       </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center text-orange-200 hover:text-white mb-8 transition-colors">
+          <Link to="/" className="inline-flex items-center text-blue-200 hover:text-white mb-8 transition-colors">
             <ArrowLeft className="mr-2" size={20} />
             Back to Home
           </Link>
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
               Comprehensive dental care tailored to meet all your oral health needs. 
               From routine cleanings to advanced procedures, we've got you covered.
             </p>
@@ -96,7 +97,7 @@ const Services = () => {
                     alt={service.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {service.price}
                   </div>
                 </div>
@@ -114,7 +115,7 @@ const Services = () => {
                     ))}
                   </div>
                   
-                  <button className="w-full bg-orange-500 text-white py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+                  <button className="w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
                     Learn More
                   </button>
                 </div>
@@ -136,32 +137,32 @@ const Services = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-orange-500" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Team</h3>
               <p className="text-gray-600">Highly trained professionals with years of experience</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-orange-500" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Latest Technology</h3>
               <p className="text-gray-600">State-of-the-art equipment for precise treatments</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-orange-500" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Comfortable Care</h3>
               <p className="text-gray-600">Gentle procedures in a relaxing environment</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-orange-500" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Flexible Payment</h3>
               <p className="text-gray-600">Insurance accepted and payment plans available</p>
@@ -171,17 +172,17 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Smile?</h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             Schedule your consultation today and take the first step towards optimal oral health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-orange-500 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-colors">
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors">
               Book Appointment
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-500 transition-colors">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
               Call (555) 123-4567
             </button>
           </div>
@@ -193,7 +194,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-orange-400 mb-4">SmileCare Dental</h3>
+              <h3 className="text-2xl font-bold text-blue-400 mb-4">SmileCare Dental</h3>
               <p className="text-gray-300 leading-relaxed">
                 Your trusted partner for comprehensive dental care and a lifetime of healthy smiles.
               </p>
@@ -201,10 +202,10 @@ const Services = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <div className="space-y-2">
-                <Link to="/" className="block text-gray-300 hover:text-orange-400 transition-colors">Home</Link>
-                <Link to="/services" className="block text-gray-300 hover:text-orange-400 transition-colors">Services</Link>
-                <a href="#" className="block text-gray-300 hover:text-orange-400 transition-colors">About</a>
-                <a href="#" className="block text-gray-300 hover:text-orange-400 transition-colors">Contact</a>
+                <Link to="/" className="block text-gray-300 hover:text-blue-400 transition-colors">Home</Link>
+                <Link to="/services" className="block text-gray-300 hover:text-blue-400 transition-colors">Services</Link>
+                <a href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
               </div>
             </div>
             <div>
@@ -213,7 +214,7 @@ const Services = () => {
                 <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
                 <p>Saturday: 9:00 AM - 3:00 PM</p>
                 <p>Sunday: Closed</p>
-                <p className="text-orange-400 font-semibold mt-4">Emergency: 24/7</p>
+                <p className="text-blue-400 font-semibold mt-4">Emergency: 24/7</p>
               </div>
             </div>
           </div>
