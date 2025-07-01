@@ -1,42 +1,43 @@
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Check, Star } from 'lucide-react';
+import { ArrowLeft, Check, Star, Menu } from 'lucide-react';
 
 const Services = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const services = [
     {
       title: "General Dentistry",
       description: "Comprehensive oral health care including cleanings, fillings, and preventive treatments.",
       features: ["Regular Cleanings", "Cavity Fillings", "Oral Exams", "Fluoride Treatments"],
-      price: "Starting at $150",
+      price: "call for pricing",
       image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop"
     },
     {
       title: "Cosmetic Dentistry",
       description: "Enhance your smile with our advanced cosmetic dental procedures.",
       features: ["Teeth Whitening", "Veneers", "Bonding", "Smile Makeovers"],
-      price: "Starting at $300",
+      price: "call for pricing",
       image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=300&fit=crop"
     },
     {
       title: "Orthodontics",
       description: "Straighten your teeth with traditional braces or modern clear aligners.",
       features: ["Traditional Braces", "Clear Aligners", "Retainers", "Progress Monitoring"],
-      price: "Starting at $3,000",
+      price: "call for pricing",
       image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=300&fit=crop"
     },
     {
       title: "Oral Surgery",
       description: "Expert surgical procedures performed with precision and care.",
       features: ["Tooth Extractions", "Wisdom Teeth", "Implant Placement", "Bone Grafting"],
-      price: "Starting at $500",
+      price: "call for pricing",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop"
     },
     {
       title: "Pediatric Dentistry",
       description: "Specialized dental care designed specifically for children and teens.",
       features: ["Child-Friendly Environment", "Preventive Care", "Sealants", "Education"],
-      price: "Starting at $100",
+      price: "call for pricing",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
     },
     {
@@ -53,18 +54,34 @@ const Services = () => {
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">SmileCare Dental</h1>
+              <img src="/logo2.png" alt="Rai Dental Clinic Logo" className="h-12 w-auto mr-2" />
+              <h1 className="text-2xl font-bold text-blue-600 flex items-center">Rai Dental clinic <span className="ml-2 text-base font-normal text-gray-500">Since 1933</span></h1>
             </div>
-            <div className="flex items-center space-x-8">
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</Link>
               <Link to="/services" className="text-blue-600 hover:text-blue-800 font-medium">Services</Link>
               <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Book Appointment
               </button>
             </div>
+            {/* Hamburger Icon */}
+            <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <Menu size={28} />
+            </button>
           </div>
+          {/* Mobile Nav */}
+          {mobileMenuOpen && (
+            <div className="md:hidden flex flex-col items-start space-y-4 mt-2 bg-white shadow rounded-lg p-4">
+              <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium w-full" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+              <Link to="/services" className="text-gray-700 hover:text-blue-600 font-medium w-full" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors w-full" onClick={() => setMobileMenuOpen(false)}>
+                Book Appointment
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -88,7 +105,7 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative overflow-hidden">
@@ -115,7 +132,7 @@ const Services = () => {
                     ))}
                   </div>
                   
-                  <button className="w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                  <button className="w-full sm:w-auto bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
                     Learn More
                   </button>
                 </div>
@@ -129,7 +146,7 @@ const Services = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose SmileCare?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Rai Dental clinic?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're committed to providing exceptional dental care that exceeds your expectations.
             </p>
@@ -183,7 +200,7 @@ const Services = () => {
               Book Appointment
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-              Call (555) 123-4567
+              Call 074836 09476
             </button>
           </div>
         </div>
@@ -194,7 +211,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-blue-400 mb-4">SmileCare Dental</h3>
+              <h3 className="text-2xl font-bold text-blue-400 mb-4">Rai Dental clinic </h3>
               <p className="text-gray-300 leading-relaxed">
                 Your trusted partner for comprehensive dental care and a lifetime of healthy smiles.
               </p>
@@ -219,7 +236,7 @@ const Services = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SmileCare Dental. All rights reserved.</p>
+            <p>&copy; 2024 Rai Dental clinic. All rights reserved.</p>
           </div>
         </div>
       </footer>
