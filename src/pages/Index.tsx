@@ -1,17 +1,18 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, Mail, MapPin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const clinicImages = [
-    "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
+    "https://lh3.googleusercontent.com/p/AF1QipOyZjKNShv_ui6-c1WL85k5AHNJs5Qm7hHnH3un=s1360-w1360-h1020-rw",
+    "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npqY-9UgswvzPde-KwosHF6F50a6fPX7zFudilVEw4Ns8caY2mp483-5miLWeWhz9kHbRMsfrLgFyHppgnek6eu1CP7hfKCONq0dmb3Mo4uS9k6OCrN10LacgcbHARjOVXwaB4P=s1360-w1360-h1020-rw",
+    "https://lh3.googleusercontent.com/p/AF1QipM-2kGcwqovqe3719A1AhA4Lz3dnJeR5Y1ZG-Lt=s1360-w1360-h1020-rw",
+    "https://lh3.googleusercontent.com/p/AF1QipOCpiefEyXspX8zw-0kMWoO4fpYO2oL6IHJlzSg=s1360-w1360-h1020-rw",
+    "https://lh3.googleusercontent.com/p/AF1QipMt13NSZA_r4H8g6cLUmBN-VwLTGIDB0VSnsf_v=s1360-w1360-h1020-rw"
   ];
 
   useEffect(() => {
@@ -34,25 +35,41 @@ const Index = () => {
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">SmileCare Dental</h1>
+              <img src="/logo2.png" alt="Rai Dental Clinic Logo" className="h-12 w-auto mr-2" />
+              <h1 className="text-2xl font-bold text-blue-600 flex items-center">Rai Dental clinic <span className="ml-2 text-base font-normal text-gray-500">Since 1933</span></h1>
             </div>
-            <div className="flex items-center space-x-8">
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium">Home</Link>
               <Link to="/services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</Link>
               <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Book Appointment
               </button>
             </div>
+            {/* Hamburger Icon */}
+            <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <Menu size={28} />
+            </button>
           </div>
+          {/* Mobile Nav */}
+          {mobileMenuOpen && (
+            <div className="md:hidden flex flex-col items-start space-y-4 mt-2 bg-white shadow rounded-lg p-4">
+              <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium w-full" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+              <Link to="/services" className="text-gray-700 hover:text-blue-600 font-medium w-full" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors w-full" onClick={() => setMobileMenuOpen(false)}>
+                Book Appointment
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section with Rotating Gallery */}
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <h1 className="text-5xl font-bold leading-tight">
                 Your Perfect Smile Starts Here
@@ -125,9 +142,9 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">About SmileCare Dental</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">About Rai Dental clinic </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              For over 15 years, we've been dedicated to providing exceptional dental care 
+              For over 92 years, we've been dedicated to providing exceptional dental care 
               in a comfortable, modern environment.
             </p>
           </div>
@@ -171,7 +188,7 @@ const Index = () => {
           <div className="mt-20 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-12 text-white">
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-2">15+</div>
+                <div className="text-4xl font-bold mb-2">92+</div>
                 <div className="text-blue-100">Years Experience</div>
               </div>
               <div>
@@ -206,21 +223,21 @@ const Index = () => {
               <Phone className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
               <p className="text-gray-600 mb-4">Speak with our friendly staff</p>
-              <p className="text-blue-600 font-semibold">(555) 123-4567</p>
+              <p className="text-blue-600 font-semibold"> 074836 09476</p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
               <Mail className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
               <p className="text-gray-600 mb-4">Send us your questions</p>
-              <p className="text-blue-600 font-semibold">info@smilecare.com</p>
+              <p className="text-blue-600 font-semibold">raidentalclinic@gmail.com</p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
               <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
               <p className="text-gray-600 mb-4">Come see our modern facility</p>
-              <p className="text-blue-600 font-semibold">123 Main St, Suite 100<br />Anytown, ST 12345</p>
+              <p className="text-blue-600 font-semibold"> Ground flr, Nalapad Apsara Chambers, KSR Road, opp. Poonja arcade, Hampankatta,<br /> Mangaluru, Karnataka 575001</p>
             </div>
           </div>
         </div>
@@ -231,7 +248,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-blue-400 mb-4">SmileCare Dental</h3>
+              <h3 className="text-2xl font-bold text-blue-400 mb-4">Rai Dental clinic </h3>
               <p className="text-gray-300 leading-relaxed">
                 Your trusted partner for comprehensive dental care and a lifetime of healthy smiles.
               </p>
@@ -256,7 +273,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SmileCare Dental. All rights reserved.</p>
+            <p>&copy; 2024 Rai Dental clinic. All rights reserved.</p>
           </div>
         </div>
       </footer>
